@@ -24,21 +24,48 @@ jobs:
 
       - name: Process Character Files
         run: |
-          mkdir -p output
+          # Create folder with space handling
+          mkdir -p "Decoded Results"
           
-          # Check for monika.chr in Charecters directory
+          # 1. Monika (PNG Image Disguise)
           if [ -f "Charecters/monika.chr" ]; then
-            cp Charecters/monika.chr output/monika.png
-            echo "Successfully converted monika.chr to monika.png"
-          else
-            echo "Execution timestamp: $(date)" > output/status.txt
+            cp "Charecters/monika.chr" "Decoded Results/monika.png"
+            echo "Decoded monika.chr -> monika.png"
+          fi
+
+          # 2. Yuri (Base64 Encoded Text)
+          if [ -f "Charecters/yuri.chr" ]; then
+            python3 -c "
+          import base64
+          try:
+              with open('Charecters/yuri.chr', 'r', encoding='utf-8') as f:
+                  encoded = f.read().strip()
+              decoded = base64.b64decode(encoded).decode('utf-8')
+              with open('Decoded Results/yuri_decoded.txt', 'w', encoding='utf-8') as out:
+                  out.write(decoded)
+              print('Decoded yuri.chr -> yuri_decoded.txt')
+          except Exception as e:
+              print(f'Error processing yuri.chr: {e}')
+          "
+          fi
+
+          # 3. Sayori (Audio File - Convert extension to .ogg for spectrogram analysis)
+          if [ -f "Charecters/sayori.chr" ]; then
+            cp "Charecters/sayori.chr" "Decoded Results/sayori_audio.ogg"
+            echo "Prepared sayori.chr -> sayori_audio.ogg"
+          fi
+
+          # 4. Natsuki (Raw Image Texture Data)
+          if [ -f "Charecters/natsuki.chr" ]; then
+            cp "Charecters/natsuki.chr" "Decoded Results/natsuki_raw.png"
+            echo "Prepared natsuki.chr -> natsuki_raw.png"
           fi
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/
-          git diff-index --quiet HEAD || git commit -m "auto: process game files"
+          git add "Decoded Results/"
+          git diff-index --quiet HEAD || git commit -m "auto: decode character files into Decoded Results"
           git push
           

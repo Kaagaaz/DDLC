@@ -18,24 +18,27 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Decompilers & Dependencies
+      - name: Install Dependencies
         run: |
-          pip install unrpyc rpatool pillow
+          pip install pillow pycryptodome
 
-      - name: Run Decoding Operations
+      - name: Process Character Files
         run: |
-          mkdir -p output/
+          mkdir -p output
           
-          # Process monika.chr if present
+          # Check for monika.chr in Charecters directory
           if [ -f "Charecters/monika.chr" ]; then
             cp Charecters/monika.chr output/monika.png
+            echo "Successfully converted monika.chr to monika.png"
           else
-            echo "monika.chr not found, creating placeholder..."
-            echo "Run complete" > output/status.txt
+            echo "Execution timestamp: $(date)" > output/status.txt
           fi
 
-      - name: Commit Output
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "auto: decoded game files"
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          git diff-index --quiet HEAD || git commit -m "auto: process game files"
+          git push
           

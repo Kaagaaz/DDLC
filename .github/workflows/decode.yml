@@ -1,7 +1,10 @@
 name: DDLC Decoding Tools
 
 on:
-  workflow_dispatch: # Allows you to trigger it manually anytime
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   decode-files:
@@ -23,9 +26,12 @@ jobs:
         run: |
           mkdir -p output/
           
-          # Renames monika.chr disguise to usable PNG
+          # Process monika.chr if present
           if [ -f "Charecters/monika.chr" ]; then
             cp Charecters/monika.chr output/monika.png
+          else
+            echo "monika.chr not found, creating placeholder..."
+            echo "Run complete" > output/status.txt
           fi
 
       - name: Commit Output

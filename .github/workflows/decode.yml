@@ -1,0 +1,35 @@
+name: DDLC Decoding Tools
+
+on:
+  workflow_dispatch: # Allows you to trigger it manually anytime
+
+jobs:
+  decode-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Decompilers & Dependencies
+        run: |
+          pip install unrpyc rpatool pillow
+
+      - name: Run Decoding Operations
+        run: |
+          mkdir -p output/
+          
+          # Renames monika.chr disguise to usable PNG
+          if [ -f "Charecters/monika.chr" ]; then
+            cp Charecters/monika.chr output/monika.png
+          fi
+
+      - name: Commit Output
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: decoded game files"
+          

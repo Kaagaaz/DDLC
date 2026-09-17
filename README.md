@@ -1,4 +1,4 @@
-Doki Doki Literature Club! – Lore Investigation & Project Libitina Research Hub
+#Doki Doki Literature Club! – Lore Investigation & Project Libitina Research Hub
 Important Disclaimer & Content Warning
 > Notice: This repository is an unofficial, fan-led ARG (Alternate Reality Game) investigation archive dedicated solely to analyzing and documenting the fictional narrative, hidden puzzles, and lore created by Team Salvato.
 > ALL content within this repository—including character files, medical reports, corporate logs, staff communications, and references to "Project Libitina" or "Metaverse Enterprise Solutions"—is 100% FICTIONAL.

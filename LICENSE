@@ -1,8 +1,15 @@
-Contributing Guidelines
+# Contributing Guidelines
+
+
 Welcome to the DDLC Lore & ARG Research Hub! Community collaboration is the backbone of reverse-engineering and mapping the broader narrative universe created by Team Salvato. Whether you are a programmer, cipher solver, or lore archivist, we are excited to have you contribute to this project.
+
+
 Special Acknowledgments & Credits
 We extend a special thank you to Paisseon (Lilliana), the original creator of the base repository this project was forked from! We are immensely grateful for her foundational work in assembling the initial base code, folder structure, and game resources that made this expanded lore research hub possible.
-Community Research Progress & Current Focus
+
+
+# Community Research Progress & Current Focus
+
 This repository functions as a centralized archive documenting both historical community breakthroughs and active ongoing research across Doki Doki Literature Club! and DDLC Plus!.
 1. Historical Cryptographic Breakthroughs
  * monika.chr: Decoded into a 32x32 binary block matrix PNG string, revealing an early monologue regarding an awakening digital entity.
@@ -13,14 +20,20 @@ This repository functions as a centralized archive documenting both historical c
  * Metaverse Enterprise Solutions (MES) System Logs: Mapping time-gated email chains, internal logs (project plan.txt, 14.txt, MES.txt), and personnel records (Paula Miner, Rea Vance) within DDLC OS.
  * Virtual Machine Architecture: Documenting the mechanics of VM1 (the control environment hosting the Literature Club) versus VM2 (the dark, highly unstable horror simulation connected to Project Libitina).
  * The Portrait of Markov Cross-Referencing: Cataloging narrative motifs—such as memory modification, human stress testing, and the "Third Eye" trait—to connect in-game dialogue to MES facility records.
+
+
 Licensing & Open Source Agreement
+
 By submitting a Pull Request, opening an Issue, or pushing code/documentation to this repository, you explicitly agree that all submitted work will be shared under the project's existing GNU General Public License v3.0 (GPL-3.0).
 Strict Fictional Boundaries & Safety Policy
 All contributions—including pull requests, issue threads, and documentation edits—must strictly focus on the fictional video game universe created by Team Salvato.
  * All names, medical test files, corporate communications, and Project Libitina documents are 100% fictional ARG game puzzles.
  * We do not document, store, or accept real-world personal information, actual human experimentation data, or non-fictional organization tracking.
  * Any submissions breaching these boundaries will be removed immediately.
+
+
 How to Submit Your Work
+
  * Fork the Repository: Create your copy by clicking Fork at the top right of the page.
  * Commit Your Findings: Add your decoded text, script analysis, or documentation edits inside the appropriate subdirectories.
  * Open a Pull Request: Submit a PR to our main branch with a clear summary of your findings so the community can review and merge your additions!
